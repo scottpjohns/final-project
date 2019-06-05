@@ -1,0 +1,59 @@
+<h1>
+  Add a new story
+</h1>
+
+<hr>
+
+<%= render("story_templates/validation_failures.html.erb") %>
+
+<form action="/insert_story_record" method="post">
+  <div>
+    <label for="name">
+      Name
+    </label>
+
+    <input type="text" id="name" name="name" value="<%= @story.name %>">
+  </div>
+
+  <div>
+    <label for="comments_count">
+      Comments count
+    </label>
+
+    <input type="text" id="comments_count" name="comments_count" value="<%= @story.comments_count %>">
+  </div>
+
+  <div>
+    <label for="author_id">
+      Author
+    </label>
+
+    <input type="text" id="author_id" name="author_id" value="<%= @story.author_id %>">
+  </div>
+
+  <div>
+    <label for="theme_id">
+      Theme
+    </label>
+
+    <input type="text" id="theme_id" name="theme_id" value="<%= @story.theme_id %>">
+  </div>
+
+  <div>
+    <label for="file_url">
+      File url
+    </label>
+
+    <input type="text" id="file_url" name="file_url" value="<%= @story.file_url %>">
+  </div>
+
+  <button>
+    Create story
+  </button>
+</form>
+
+<hr>
+
+<a href="/stories">
+  Go back
+</a>

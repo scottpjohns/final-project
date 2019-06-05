@@ -1,0 +1,27 @@
+<h1>
+  Add a new theme
+</h1>
+
+<hr>
+
+<%= render("theme_templates/validation_failures.html.erb") %>
+
+<form action="/insert_theme_record" method="post">
+  <div>
+    <label for="story_type">
+      Story type
+    </label>
+
+    <input type="text" id="story_type" name="story_type" value="<%= @theme.story_type %>">
+  </div>
+
+  <button>
+    Create theme
+  </button>
+</form>
+
+<hr>
+
+<a href="/themes">
+  Go back
+</a>

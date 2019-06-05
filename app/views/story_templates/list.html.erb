@@ -1,0 +1,90 @@
+<h1>
+  Story list
+</h1>
+
+<a href="/new_story_form">
+  Add a new story
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Name
+    </th>
+
+    <th>
+      Comments count
+    </th>
+
+    <th>
+      Author
+    </th>
+
+    <th>
+      Theme
+    </th>
+
+    <th>
+      File url
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @stories.each do |story| %>
+  <tr>
+    <td>
+      <%= story.id %>
+    </td>
+
+    <td>
+      <%= story.name %>
+    </td>
+
+    <td>
+      <%= story.comments_count %>
+    </td>
+
+    <td>
+      <%= story.author_id %>
+    </td>
+
+    <td>
+      <%= story.theme_id %>
+    </td>
+
+    <td>
+      <%= story.file_url %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(story.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(story.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/stories/<%= story.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

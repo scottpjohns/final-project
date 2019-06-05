@@ -1,0 +1,58 @@
+<h1>
+  Theme list
+</h1>
+
+<a href="/new_theme_form">
+  Add a new theme
+</a>
+
+<hr>
+
+<table>
+  <tr>
+    <th>
+      ID
+    </th>
+
+    <th>
+      Story type
+    </th>
+
+    <th>
+      Created at
+    </th>
+
+    <th>
+      Updated at
+    </th>
+
+    <th>
+    </th>
+  </tr>
+
+  <% @themes.each do |theme| %>
+  <tr>
+    <td>
+      <%= theme.id %>
+    </td>
+
+    <td>
+      <%= theme.story_type %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(theme.created_at) %> ago
+    </td>
+
+    <td>
+      <%= time_ago_in_words(theme.updated_at) %> ago
+    </td>
+
+    <td>
+      <a href="/themes/<%= theme.id %>">
+        Show details
+      </a>
+    </td>
+  </tr>
+  <% end %>
+</table>

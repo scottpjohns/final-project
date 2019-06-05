@@ -1,0 +1,35 @@
+<h1>
+  Add a new like
+</h1>
+
+<hr>
+
+<%= render("like_templates/validation_failures.html.erb") %>
+
+<form action="/insert_like_record" method="post">
+  <div>
+    <label for="story_id">
+      Story
+    </label>
+
+    <input type="text" id="story_id" name="story_id" value="<%= @like.story_id %>">
+  </div>
+
+  <div>
+    <label for="fan_id">
+      Fan
+    </label>
+
+    <input type="text" id="fan_id" name="fan_id" value="<%= @like.fan_id %>">
+  </div>
+
+  <button>
+    Create like
+  </button>
+</form>
+
+<hr>
+
+<a href="/likes">
+  Go back
+</a>

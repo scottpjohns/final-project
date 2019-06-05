@@ -1,0 +1,75 @@
+<h1>
+  Story #<%= @story.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/stories">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_story_form/<%= @story.id %>">
+      Edit story
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_story/<%= @story.id %>">
+      Delete story
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Name
+  </dt>
+  <dd>
+    <%= @story.name %>
+  </dd>
+
+  <dt>
+    Comments count
+  </dt>
+  <dd>
+    <%= @story.comments_count %>
+  </dd>
+
+  <dt>
+    Author
+  </dt>
+  <dd>
+    <%= @story.author_id %>
+  </dd>
+
+  <dt>
+    Theme
+  </dt>
+  <dd>
+    <%= @story.theme_id %>
+  </dd>
+
+  <dt>
+    File url
+  </dt>
+  <dd>
+    <%= @story.file_url %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@story.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@story.updated_at) %> ago
+  </dd>
+</dl>
+

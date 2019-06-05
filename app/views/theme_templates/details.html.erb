@@ -1,0 +1,47 @@
+<h1>
+  Theme #<%= @theme.id %> details
+</h1>
+
+<div>
+  <div>
+    <a href="/themes">
+      Go back
+    </a>
+  </div>
+
+  <div>
+    <a href="/existing_theme_form/<%= @theme.id %>">
+      Edit theme
+    </a>
+  </div>
+
+  <div>
+    <a href="/delete_theme/<%= @theme.id %>">
+      Delete theme
+    </a>
+  </div>
+</div>
+
+<dl>
+  <dt>
+    Story type
+  </dt>
+  <dd>
+    <%= @theme.story_type %>
+  </dd>
+
+  <dt>
+    Created at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@theme.created_at) %> ago
+  </dd>
+
+  <dt>
+    Updated at
+  </dt>
+  <dd>
+    <%= time_ago_in_words(@theme.updated_at) %> ago
+  </dd>
+</dl>
+
