@@ -21,8 +21,8 @@ class StoriesController < ApplicationController
     @story = Story.new
 
     @story.name = params.fetch("name")
-    @story.comments_count = params.fetch("comments_count")
-    @story.author_id = params.fetch("author_id")
+    # @story.comments_count = params.fetch("comments_count")
+    @story.author_id = current_user.username
     @story.theme_id = params.fetch("theme_id")
     @story.file_url = params.fetch("file_url")
 

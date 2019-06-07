@@ -9,39 +9,63 @@
 <form action="/insert_story_record" method="post">
   <div>
     <label for="name">
-      Name
+      Name your story
     </label>
 
     <input type="text" id="name" name="name" value="<%= @story.name %>">
   </div>
 
-  <div>
-    <label for="comments_count">
-      Comments count
-    </label>
+  <!--<div>-->
+  <!--  <label for="comments_count">-->
+  <!--    Comments count-->
+  <!--  </label>-->
 
-    <input type="text" id="comments_count" name="comments_count" value="<%= @story.comments_count %>">
+  <!--  <input type="text" id="comments_count" name="comments_count" value="<%= @story.comments_count %>">-->
+  <!--</div>-->
+
+  <!--<div>-->
+  <!--  <label for="author_id">-->
+  <!--    Author-->
+  <!--  </label>-->
+
+  <!--  <input type="text" id="author_id" name="author_id" value="<%= @story.author_id %>">-->
+  <!--</div>-->
+  
+  <div>
+   <label for="author_id">Your username should appear below</label>
+   <select id="author_id" >
+     <% User.all.order({ :username => :asc }).each do |a_username| %>
+     <option value="<%= a_username.id %>">
+       <%= a_username.username %>
+     </option>
+     <% end %>
+   </select>
+
   </div>
 
+  <!--<div>-->
+  <!--  <label for="theme_id">-->
+  <!--    Theme-->
+  <!--  </label>-->
+
+  <!--  <input type="text" id="theme_id" name="theme_id" value="<%= @story.theme_id %>">-->
+  <!--</div>-->
+
   <div>
-    <label for="author_id">
-      Author
-    </label>
+   <label for="theme_id">Select the question prompt your story answers from the dropdown below</label>
+   <select name="theme_id">
+     <% Theme.all.order({ :story_type => :asc }).each do |a_theme| %>
+     <option value="<%= a_theme.id %>">
+       <%= a_theme.story_type %>
+     </option>
+     <% end %>
+   </select>
 
-    <input type="text" id="author_id" name="author_id" value="<%= @story.author_id %>">
-  </div>
-
-  <div>
-    <label for="theme_id">
-      Theme
-    </label>
-
-    <input type="text" id="theme_id" name="theme_id" value="<%= @story.theme_id %>">
   </div>
 
   <div>
     <label for="file_url">
-      File url
+      Copy and paste the URL of the audio file of your story below. (Using SoundCloud or another audio file generator, insert the URL for your audio file.)
     </label>
 
     <input type="text" id="file_url" name="file_url" value="<%= @story.file_url %>">

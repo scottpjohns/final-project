@@ -1,5 +1,5 @@
 <h1>
-  Add a new theme
+  Add a new question prompt
 </h1>
 
 <hr>
@@ -9,19 +9,19 @@
 <form action="/insert_theme_record" method="post">
   <div>
     <label for="story_type">
-      Story type
+      Insert new question prompt below
     </label>
 
     <input type="text" id="story_type" name="story_type" value="<%= @theme.story_type %>">
   </div>
 
   <button>
-    Create theme
+    Create question prompt
   </button>
 </form>
 
 <hr>
 
 <a href="/themes">
-  Go back
+  See list of question prompts
 </a>
