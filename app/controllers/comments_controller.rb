@@ -21,7 +21,7 @@ class CommentsController < ApplicationController
     @comment = Comment.new
 
     @comment.text = params.fetch("text")
-    @comment.commenter_id = params.fetch("commenter_id")
+    @comment.commenter_id = current_user.id
     @comment.story_id = params.fetch("story_id")
 
     if @comment.valid?

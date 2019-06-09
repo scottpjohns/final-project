@@ -6,10 +6,21 @@ class StoriesController < ApplicationController
   end
 
   def details
-    @story = Story.where({ :id => params.fetch("id_to_display") }).first
+    story_id = params.fetch("id_to_display")
+    
+    @story = Story.where({ :id => story_id }).at(0)
 
     render("story_templates/details.html.erb")
   end
+  
+  # Trying to pull in names
+  # def show_details
+  #   story_id = params.fetch("some_id")
+
+  #   @deet = Story.where({ :id => story_id }).at(0)
+
+  #   render("story_templates/details.html.erb")
+  # end
 
   def blank_form
     @story = Story.new

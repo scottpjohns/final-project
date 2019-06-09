@@ -16,19 +16,28 @@
   </div>
 
   <div>
-    <label for="commenter_id">
-      Commenter
-    </label>
+    <label for="commenter_id">Your username should appear below</label>
+    <select id="commenter_id" >
+      <% User.all.order({ :username => :asc }).each do |z_username| %>
+      <option value="<%= z_username.id %>">
+       <%= z_username.username %>
+      </option>
+      <% end %>
+    </select>
 
-    <input type="text" id="commenter_id" name="commenter_id" value="<%= @comment.commenter_id %>">
+    <!--<input type="text" id="commenter_id" name="commenter_id" value="<%= @comment.commenter_id %>">-->
   </div>
 
   <div>
-    <label for="story_id">
-      Story
-    </label>
+    <label for="story_id">Story</label>
+    <select name="story_id" >
+      <% Story.all.order({ :name => :asc }).each do |a_story_name| %>
+      <option value="<%= a_story_name.id %>">
+        <%= a_story_name.name %>
+      </option>
+      <% end %>
+    </select>
 
-    <input type="text" id="story_id" name="story_id" value="<%= @comment.story_id %>">
   </div>
 
   <button>

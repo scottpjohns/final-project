@@ -24,4 +24,7 @@ class User < ApplicationRecord
   # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
+         
+  has_many(:own_stories, { :class_name => "Story", :foreign_key => "author_id" })
+
 end
