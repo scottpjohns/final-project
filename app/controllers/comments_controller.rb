@@ -62,4 +62,19 @@ class CommentsController < ApplicationController
 
     redirect_to("/comments", { :notice => "Comment deleted successfully." })
   end
+  
+  def save_new_row
+    comment = Comment.new
+    comment.story_id = params.fetch("story_id")
+    comment.commenter_id = current_user.id
+    comment.text = params.fetch("comment_text")
+
+    comment.save
+
+    story = Story.where({ :id => comment.story_id }).at(0)
+    # story.comments_count = story.comments_count + 1
+    story.save
+
+    redirect_to("/stories/" + comment.story_id.to_s)
+  end
 end

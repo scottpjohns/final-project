@@ -23,6 +23,7 @@ Rails.application.routes.draw do
   # CREATE
   match("/new_comment_form", { :controller => "comments", :action => "blank_form", :via => "get" })
   match("/insert_comment_record", { :controller => "comments", :action => "save_new_info", :via => "post" })
+  match("/create_comment_record", { :controller => "comments", :action => "save_new_row", :via => "get" })
 
   # READ
   match("/comments", { :controller => "comments", :action => "list", :via => "get" })

@@ -73,3 +73,39 @@
   </dd>
 </dl>
 
+<h2>Comments</h2>
+
+<table>
+  <tr>
+    <th>Commenter</th>
+    <th>Comment</th>
+    <th>Posted</th>
+  </tr>
+
+  <% @story.comments.order({ :created_at => :asc }).each do |comment| %>
+  <tr>
+    <td>
+      <%= comment.commenter_id %>
+    </td>
+
+    <td>
+      <%= comment.text %>
+    </td>
+
+    <td>
+      <%= time_ago_in_words(comment.created_at) %> ago
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<h3>Add a new comment</h3>
+
+<form action="/create_comment_record">
+  <input type="hidden" value="<%= @story.id %>" name="story_id">
+
+  <label for="comment_box">Comment</label>
+  <textarea id="comment_box" name="comment_text" placeholder="Enter a comment..."></textarea>
+
+  <button>Add comment</button>
+</form>
