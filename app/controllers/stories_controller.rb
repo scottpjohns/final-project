@@ -57,7 +57,7 @@ class StoriesController < ApplicationController
 
     @story.name = params.fetch("name")
     @story.comments_count = params.fetch("comments_count")
-    @story.author_id = params.fetch("author_id")
+    @story.author_id = current_user.id
     @story.theme_id = params.fetch("theme_id")
     @story.file_url = params.fetch("file_url")
 
@@ -76,5 +76,17 @@ class StoriesController < ApplicationController
     @story.destroy
 
     redirect_to("/stories", { :notice => "Story deleted successfully." })
+  end
+  
+  def recent
+    @story = Story.all.order({ :created_at => :desc }).limit(25)
+
+    render("story_templates/time_list.html.erb")
+  end
+
+  def most_liked
+    @story = Story.all.order({ :comments_count => :desc }).limit(25)
+
+    render("story_templates/liked_list.html.erb")
   end
 end

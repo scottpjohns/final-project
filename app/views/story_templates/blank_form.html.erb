@@ -1,3 +1,39 @@
+  <div>
+    <a href="/recent">
+      Home
+    </a>
+  </div>
+  
+  <div>
+    <a href="/stories">
+      All stories
+    </a>
+  </div>
+  
+  <div>
+    <a href="/popular">
+      Popular stories
+    </a>
+  </div>
+  
+  <div>
+    <a href="/new_story_form">
+      Add a story
+    </a>
+  </div>
+  
+  <div>
+    <a href="/new_theme_form">
+      Add a question prompt
+    </a>
+  </div>
+  
+  <div>
+    <a href="/users/sign_out" data-method="delete">
+      Sign out
+    </a>
+  </div>
+
 <h1>
   Add a new story
 </h1>
@@ -31,17 +67,7 @@
   <!--  <input type="text" id="author_id" name="author_id" value="<%= @story.author_id %>">-->
   <!--</div>-->
   
-  <div>
-   <label for="author_id">Your username should appear below</label>
-   <select id="author_id" >
-     <% User.all.order({ :username => :asc }).each do |a_username| %>
-     <option value="<%= a_username.id %>">
-       <%= a_username.username %>
-     </option>
-     <% end %>
-   </select>
 
-  </div>
 
   <!--<div>-->
   <!--  <label for="theme_id">-->
@@ -65,7 +91,7 @@
 
   <div>
     <label for="file_url">
-      Copy and paste the URL of the audio file of your story below. (Using SoundCloud or another audio file generator, insert the URL for your audio file.)
+      Copy and paste the URL of the audio file of your story below. (Using SoundCloud or another program or cloudspace, insert the URL for your audio file.)
     </label>
 
     <input type="text" id="file_url" name="file_url" value="<%= @story.file_url %>">
@@ -79,5 +105,5 @@
 <hr>
 
 <a href="/stories">
-  Go back
+  Return to list of stories
 </a>

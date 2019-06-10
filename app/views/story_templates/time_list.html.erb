@@ -34,69 +34,45 @@
     </a>
   </div>
 
-<h1>
-  Like list
-</h1>
+<h1>Recent Stories</h1>
 
-<a href="/new_like_form">
-  Add a new like
-</a>
-
-<hr>
 
 <table>
   <tr>
-    <th>
-      ID
-    </th>
-
-    <th>
-      Story
-    </th>
-
-    <th>
-      Fan
-    </th>
-
-    <th>
-      Created at
-    </th>
-
-    <th>
-      Updated at
-    </th>
-
-    <th>
-    </th>
+    <th>Story name</th>
+    <th>Question prompt</th>
+    <th>Author</th>
+    <th>Posted</th>
+    <th>Likes</th>
+    <th></th>
   </tr>
 
-  <% @likes.each do |like| %>
+  <% @story.each do |story| %>
   <tr>
     <td>
-      <%= like.id %>
+      <%= story.name %>
     </td>
 
     <td>
-      <%= like.story_id %>
+      <%= story.theme_id %>
     </td>
 
     <td>
-      <%= like.fan_id %>
+      <%= story.author_id %>
     </td>
 
     <td>
-      <%= time_ago_in_words(like.created_at) %> ago
+      <%= time_ago_in_words(story.created_at) %> ago
     </td>
 
     <td>
-      <%= time_ago_in_words(like.updated_at) %> ago
+      
+    </td>
+    
+    <td>
+      <a href="/stories/<%= story.id %>">Show details</a>
     </td>
 
-    <td>
-      <a href="/likes/<%= like.id %>">
-        Show details
-      </a>
-    </td>
   </tr>
   <% end %>
 </table>

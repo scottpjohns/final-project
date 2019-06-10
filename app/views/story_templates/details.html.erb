@@ -1,13 +1,51 @@
+  <div>
+    <a href="/recent">
+      Home
+    </a>
+  </div>
+  
+  <div>
+    <a href="/stories">
+      All stories
+    </a>
+  </div>
+  
+  <div>
+    <a href="/popular">
+      Popular stories
+    </a>
+  </div>
+  
+  <div>
+    <a href="/new_story_form">
+      Add a story
+    </a>
+  </div>
+  
+  <div>
+    <a href="/users">
+      All users
+    </a>
+  </div>
+  
+  <div>
+    <a href="/users/sign_out">
+      Edit profile
+    </a>
+  </div>
+  
+  <div>
+    <a href="/users/sign_out">
+      Sign out
+    </a>
+  </div>
+
+
 <h1>
   <%= @story.name %> story details
 </h1>
 
 <div>
-  <div>
-    <a href="/stories">
-      See list of stories 
-    </a>
-  </div>
 
   <div>
     <a href="/existing_story_form/<%= @story.id %>">
@@ -31,7 +69,7 @@
   </dd>
 
   <dt>
-    Comments count
+    Fans
   </dt>
   <dd>
     <%= @story.comments_count %>
@@ -41,7 +79,7 @@
     Author
   </dt>
   <dd>
-    <%= @story.author_id %>
+    <%= User.where({ :id => @story.author_id}).at(0).username %>
   </dd>
 
   <dt>

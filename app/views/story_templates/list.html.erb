@@ -1,21 +1,50 @@
+  <div>
+    <a href="/recent">
+      Home
+    </a>
+  </div>
+  
+  <div>
+    <a href="/stories">
+      All stories
+    </a>
+  </div>
+  
+  <div>
+    <a href="/popular">
+      Popular stories
+    </a>
+  </div>
+  
+  <div>
+    <a href="/new_story_form">
+      Add a story
+    </a>
+  </div>
+  
+  <div>
+    <a href="/new_theme_form">
+      Add a question prompt
+    </a>
+  </div>
+  
+  <div>
+    <a href="/users/sign_out" data-method="delete">
+      Sign out
+    </a>
+  </div>
+
 <h1>
   Story list
 </h1>
-
-<a href="/new_story_form">
-  Add a new story
-</a>
 
 <hr>
 
 <table>
   <tr>
-    <!--<th>-->
-    <!--  ID-->
-    <!--</th>-->
 
     <th>
-      Name of story
+      Name of story 
     </th>
 
     <th>
@@ -48,12 +77,12 @@
 
   <% @stories.each do |story| %>
   <tr>
-    <!--<td>-->
-    <!--  <%= story.id %>-->
-    <!--</td>-->
 
+  
     <td>
-      <%= story.name %>
+      <a href = "file_url"> 
+        <%= story.name %> 
+      </a>
     </td>
 
     <td>

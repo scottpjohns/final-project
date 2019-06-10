@@ -19,6 +19,13 @@ Rails.application.routes.draw do
   #------------------------------
 
   # Routes for the Comment resource:
+  
+  match("/", { :controller => "stories", :action => "recent", :via => "get" })
+
+  
+  match("/recent", { :controller => "stories", :action => "recent", :via => "get" })
+
+  match("/popular", { :controller => "stories", :action => "most_liked", :via => "get" })
 
   # CREATE
   match("/new_comment_form", { :controller => "comments", :action => "blank_form", :via => "get" })
