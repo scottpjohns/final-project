@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   # CREATE
   match("/new_theme_form", { :controller => "themes", :action => "blank_form", :via => "get" })
-  match("/insert_theme_record", { :controller => "themes", :action => "save_new_info", :via => "post" })
+  #match("/insert_theme_record", { :controller => "themes", :action => "save_new_info", :via => "post" })
 
   # READ
   match("/themes", { :controller => "themes", :action => "list", :via => "get" })
@@ -11,10 +11,10 @@ Rails.application.routes.draw do
 
   # UPDATE
   match("/existing_theme_form/:id_to_prefill", { :controller => "themes", :action => "prefilled_form", :via => "get" })
-  match("/update_theme_record/:id_to_modify", { :controller => "themes", :action => "save_edits", :via => "post" })
+  #match("/update_theme_record/:id_to_modify", { :controller => "themes", :action => "save_edits", :via => "post" })
 
   # DELETE
-  match("/delete_theme/:id_to_remove", { :controller => "themes", :action => "remove_row", :via => "get" })
+  #match("/delete_theme/:id_to_remove", { :controller => "themes", :action => "remove_row", :via => "get" })
 
   #------------------------------
 
@@ -33,34 +33,34 @@ Rails.application.routes.draw do
   match("/create_comment_record", { :controller => "comments", :action => "save_new_row", :via => "get" })
 
   # READ
-  match("/comments", { :controller => "comments", :action => "list", :via => "get" })
-  match("/comments/:id_to_display", { :controller => "comments", :action => "details", :via => "get" })
+  #match("/comments", { :controller => "comments", :action => "list", :via => "get" })
+  #match("/comments/:id_to_display", { :controller => "comments", :action => "details", :via => "get" })
 
   # UPDATE
-  match("/existing_comment_form/:id_to_prefill", { :controller => "comments", :action => "prefilled_form", :via => "get" })
-  match("/update_comment_record/:id_to_modify", { :controller => "comments", :action => "save_edits", :via => "post" })
+  #match("/existing_comment_form/:id_to_prefill", { :controller => "comments", :action => "prefilled_form", :via => "get" })
+ # match("/update_comment_record/:id_to_modify", { :controller => "comments", :action => "save_edits", :via => "post" })
 
   # DELETE
-  match("/delete_comment/:id_to_remove", { :controller => "comments", :action => "remove_row", :via => "get" })
+ # match("/delete_comment/:id_to_remove", { :controller => "comments", :action => "remove_row", :via => "get" })
 
   #------------------------------
 
   # Routes for the Like resource:
 
   # CREATE
-  match("/new_like_form", { :controller => "likes", :action => "blank_form", :via => "get" })
-  match("/insert_like_record", { :controller => "likes", :action => "save_new_info", :via => "post" })
+ # match("/new_like_form", { :controller => "likes", :action => "blank_form", :via => "get" })
+  #match("/insert_like_record", { :controller => "likes", :action => "save_new_info", :via => "post" })
 
   # READ
-  match("/likes", { :controller => "likes", :action => "list", :via => "get" })
-  match("/likes/:id_to_display", { :controller => "likes", :action => "details", :via => "get" })
+ # match("/likes", { :controller => "likes", :action => "list", :via => "get" })
+  #match("/likes/:id_to_display", { :controller => "likes", :action => "details", :via => "get" })
 
   # UPDATE
-  match("/existing_like_form/:id_to_prefill", { :controller => "likes", :action => "prefilled_form", :via => "get" })
-  match("/update_like_record/:id_to_modify", { :controller => "likes", :action => "save_edits", :via => "post" })
+  #match("/existing_like_form/:id_to_prefill", { :controller => "likes", :action => "prefilled_form", :via => "get" })
+  #match("/update_like_record/:id_to_modify", { :controller => "likes", :action => "save_edits", :via => "post" })
 
   # DELETE
-  match("/delete_like/:id_to_remove", { :controller => "likes", :action => "remove_row", :via => "get" })
+  #match("/delete_like/:id_to_remove", { :controller => "likes", :action => "remove_row", :via => "get" })
 
   #------------------------------
 
