@@ -10,7 +10,7 @@
 #  file_url       :string
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
-#
+#  
 
 class Story < ApplicationRecord
   belongs_to(:owner, { :class_name => "User", :foreign_key => "author_id" })
@@ -20,4 +20,14 @@ class Story < ApplicationRecord
   has_many(:likes)
 
   has_many(:fans, { :through => :likes })
+  
+  def author_name
+    User.where({ :id => self.author_id}).at(0).username
+  end
+    
+  def prompt
+    Theme.where({ :id => self.theme_id}).first.story_type
+  end
+  
+
 end

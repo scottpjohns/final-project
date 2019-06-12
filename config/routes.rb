@@ -69,6 +69,8 @@ Rails.application.routes.draw do
   # CREATE
   match("/new_story_form", { :controller => "stories", :action => "blank_form", :via => "get" })
   match("/insert_story_record", { :controller => "stories", :action => "save_new_info", :via => "post" })
+  match("/file_url", { :controller => "stories", :action => "access_url", :via => "get" })
+
 
   # READ
   match("/stories", { :controller => "stories", :action => "list", :via => "get" })

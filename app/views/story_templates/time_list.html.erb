@@ -11,12 +11,6 @@
   </div>
   
   <div>
-    <a href="/popular">
-      Popular stories
-    </a>
-  </div>
-  
-  <div>
     <a href="/new_story_form">
       Add a story
     </a>
@@ -36,6 +30,8 @@
 
 <h1>Recent Stories</h1>
 
+<hr>
+
 
 <table>
   <tr>
@@ -43,22 +39,23 @@
     <th>Question prompt</th>
     <th>Author</th>
     <th>Posted</th>
-    <th>Likes</th>
     <th></th>
   </tr>
 
   <% @story.each do |story| %>
   <tr>
     <td>
-      <%= story.name %>
+      <a href = "<%= story.file_url %>" target="_blank"> 
+        <%= story.name %> 
+      </a>
     </td>
 
     <td>
-      <%= story.theme_id %>
+      <%= story.prompt %>
     </td>
 
     <td>
-      <%= story.author_id %>
+      <%= story.author_name %>
     </td>
 
     <td>
@@ -76,3 +73,6 @@
   </tr>
   <% end %>
 </table>
+
+<hr>
+

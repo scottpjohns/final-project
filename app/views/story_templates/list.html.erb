@@ -11,12 +11,6 @@
   </div>
   
   <div>
-    <a href="/popular">
-      Popular stories
-    </a>
-  </div>
-  
-  <div>
     <a href="/new_story_form">
       Add a story
     </a>
@@ -48,19 +42,11 @@
     </th>
 
     <th>
-      Comments count
-    </th>
-
-    <th>
       Author
     </th>
 
     <th>
       Theme
-    </th>
-
-    <th>
-      File url
     </th>
 
     <th>
@@ -80,25 +66,17 @@
 
   
     <td>
-      <a href = "file_url"> 
+      <a href = "<%= story.file_url %>" target="_blank"> 
         <%= story.name %> 
       </a>
     </td>
 
     <td>
-      <%= story.comments_count %>
+      <%= story.author_name %>
     </td>
 
     <td>
-      <%= story.author_id %>
-    </td>
-
-    <td>
-      <%= story.theme_id %>
-    </td>
-
-    <td>
-      <%= story.file_url %>
+      <%= story.prompt %>
     </td>
 
     <td>

@@ -33,7 +33,7 @@ class StoriesController < ApplicationController
 
     @story.name = params.fetch("name")
     # @story.comments_count = params.fetch("comments_count")
-    @story.author_id = current_user.username
+    @story.author_id = current_user.id
     @story.theme_id = params.fetch("theme_id")
     @story.file_url = params.fetch("file_url")
 
@@ -88,5 +88,10 @@ class StoriesController < ApplicationController
     @story = Story.all.order({ :comments_count => :desc }).limit(25)
 
     render("story_templates/liked_list.html.erb")
+  end
+  
+  def access_url
+    
+
   end
 end

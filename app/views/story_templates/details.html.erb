@@ -11,31 +11,19 @@
   </div>
   
   <div>
-    <a href="/popular">
-      Popular stories
-    </a>
-  </div>
-  
-  <div>
     <a href="/new_story_form">
       Add a story
     </a>
   </div>
   
   <div>
-    <a href="/users">
-      All users
+    <a href="/new_theme_form">
+      Add a question prompt
     </a>
   </div>
   
   <div>
-    <a href="/users/sign_out">
-      Edit profile
-    </a>
-  </div>
-  
-  <div>
-    <a href="/users/sign_out">
+    <a href="/users/sign_out" data-method="delete">
       Sign out
     </a>
   </div>
@@ -44,33 +32,36 @@
 <h1>
   <%= @story.name %> story details
 </h1>
+<hr>
 
-<div>
+  <% if current_user.id == @story.owner.id %>
+  <dt>Be careful!</dt>
+  <dd>
+    <nav>
+      <div>
+        <a href="/existing_story_form/<%= @story.id %>">
+          Edit story
+        </a>
+      </div>
 
-  <div>
-    <a href="/existing_story_form/<%= @story.id %>">
-      Edit story
-    </a>
-  </div>
-
-  <div>
-    <a href="/delete_story/<%= @story.id %>">
-      Delete story
-    </a>
-  </div>
-</div>
-
+      <div>
+        <a href="/delete_story/<%= @story.id %>">
+          Delete story
+        </a>
+      </div>
+    </nav>
+  </dd>
+  <% end %>
 <dl>
   <dt>
     Name
   </dt>
   <dd>
-    <%= @story.name %>
+    <a href = "<%= @story.file_url %>" target="_blank"> 
+      <%= @story.name %> 
+    </a>
   </dd>
 
-  <dt>
-    Fans
-  </dt>
   <dd>
     <%= @story.comments_count %>
   </dd>
@@ -79,21 +70,23 @@
     Author
   </dt>
   <dd>
-    <%= User.where({ :id => @story.author_id}).at(0).username %>
+    <%= @story.author_name %>
   </dd>
 
   <dt>
     Theme
   </dt>
   <dd>
-    <%= @story.theme_id %>
+    <%= @story.prompt %>
   </dd>
 
   <dt>
     File url
   </dt>
   <dd>
-    <%= @story.file_url %>
+    <a href = "<%= @story.file_url %>" target="_blank"> 
+        <%= @story.file_url %> 
+      </a>
   </dd>
 
   <dt>
@@ -123,9 +116,8 @@
   <% @story.comments.order({ :created_at => :asc }).each do |comment| %>
   <tr>
     <td>
-      <%= comment.commenter_id %>
+      <%= comment.commenter_name %>
     </td>
-
     <td>
       <%= comment.text %>
     </td>
@@ -147,3 +139,5 @@
 
   <button>Add comment</button>
 </form>
+
+<hr>
